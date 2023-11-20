@@ -1,0 +1,35 @@
+@import '/src/style-components/form.css';
+@import '/src/style-components/card.css';
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --btn-color: #f97316;
+    --bg-color: #2c3549;
+    --tx-color: #b5bbc7;
+    --card-color: #ffffff;
+}
+
+body{
+    background-color: var(--bg-color);
+    font-family: Helvetica, sans-serif;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form_field,
+.weather_card{
+
+    width: 500px;
+}
