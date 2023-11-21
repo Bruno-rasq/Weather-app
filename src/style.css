@@ -9,9 +9,10 @@
 
 :root{
     --btn-color: #f97316;
-    --bg-color: #dbe1ec;
+    --bg-color: #fdfdfd;
     --tx-color: #b5bbc7;
     --card-color: #ffffff;
+    --input-color: rgb(56, 56, 56);
 }
 
 body{

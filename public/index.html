@@ -7,11 +7,11 @@
     <title>Weather-app</title>
 
     <link rel="stylesheet" href="/src/style.css">
-    <script src="/src/script.js" defer></script>
+    <script type="module" src="/src/script.js" defer></script>
 
 </head>
 
-<body>
+<body id="body">
 
     <div class="form_field">
         <form>
@@ -23,24 +23,24 @@
     <div class="weather_card">
 
         <div class="location_section">
-            <span id="cityName">Sombrio</span>
+            <span id="cityName">--</span>
             <div class="local">
-                <span id="regionName">SC</span>
+                <span id="regionName">--</span>
                 <span>-</span>
-                <span id="countryName">Brazil</span>
+                <span id="countryName">--</span>
             </div>
         </div>
 
         <div class="temp_section">
-            <img src="#" alt="weather-image" class="img" id="img">
+            <img src="" alt="weather-image" class="img" id="img">
             <div class="temp_info">
-                <span class="graus" id="temp">32</span>
+                <span class="graus" id="temp">0</span>
                 <span class="celcius">°</span>
             </div>
         </div>
 
         <div class="Description_section">
-            <span id="description_temp">Nublado</span>
+            <span id="description_temp">--</span>
         </div>
     </div>
 
