@@ -9,14 +9,14 @@
 
 :root{
     --btn-color: #f97316;
-    --bg-color: #fdfdfd;
-    --tx-color: #b5bbc7;
+    --bg-color: #e2e2e2;
+    --tx-color: #a0a2a8;
     --card-color: #ffffff;
     --input-color: rgb(56, 56, 56);
 }
 
 body{
-    background-color: var(--bg-color);
+    background-image: linear-gradient(to bottom, rgb(196, 196, 196), var(--bg-color));
     font-family: Helvetica, sans-serif;
 
     width: 100vw;

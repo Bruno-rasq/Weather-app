@@ -1,7 +1,6 @@
 .weather_card{
 
     height: 400px;
-    background-color: var(--card-color);
 
     display: flex;
     flex-direction: column;
@@ -25,25 +24,27 @@
 }
 
 .location_section .local span{
-    color: var(--t-color);
+    color: var(--tx-color);
 }
 
-.temp_section{
-    height: 160px;
 
+.temp_section{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    gap: 5px;
+    gap: 10px;
+
+    margin-block: 20px;
 }
 
 .temp_section .img{
-   height: 100%;
-   width: 200px;
+   height: 60px;
+   width: 60px;
 
    display: flex;
    justify-content: center;
    align-items: center;
+   background-size: cover;
 }
 
 .temp_section .temp_info{
@@ -68,7 +69,7 @@
     height: 70px;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #e7e7e7;
 }
