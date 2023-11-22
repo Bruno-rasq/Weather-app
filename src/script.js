@@ -33,6 +33,7 @@ const buildData = (location, current) => {
 
 }
 
+//capturando cidade requisitada
 const getRequest = () => {
     let city = Input_text.value
     Input_text.value = ''
