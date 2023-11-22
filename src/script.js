@@ -1,8 +1,8 @@
 import { FetchAPI } from "./services/api.js";
 import { BGColorchange } from "./scripts/colorcontrol.js";
 
-const btn_search = document.querySelector('#buscar');
 const Input_text = document.querySelector('#input_text');
+const form = document.querySelector('#form');
 
 
 //elementos visuais
@@ -33,20 +33,26 @@ const buildData = (location, current) => {
 
 }
 
+const getRequest = () => {
+    let city = Input_text.value
+    Input_text.value = ''
+
+    return city
+}
+
 
 //submetendo a requisição
-btn_search.addEventListener('click',  async (event) => {
+form.addEventListener('submit',  async (event) => {
 
     event.preventDefault()
 
-    let cityResquest = Input_text.value
+    let cityResquest = getRequest()
     let result = await FetchAPI(cityResquest);
     let { location, current } = result
 
     buildData(location, current)
     localStorage.setItem("city", cityResquest)
 
-    Input_text.value = ''
 });
 
 
