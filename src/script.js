@@ -1,5 +1,5 @@
 import { FetchAPI } from "./services/api.js";
-import { BGColorchange } from "./scripts/bodybgcolor.js";
+import { BGColorchange } from "./scripts/colorcontrol.js";
 
 const btn_search = document.querySelector('#buscar');
 const Input_text = document.querySelector('#input_text');
@@ -13,6 +13,10 @@ const img = document.querySelector('#img');
 const temp = document.querySelector('#temp');
 const description_temp = document.querySelector('#description_temp');
 const feelslike = document.querySelector('#feelslike')
+
+
+//variaveis auxiliares
+let initial_case = 'london'; 
 
 
 
@@ -32,6 +36,7 @@ const buildData = (location, current) => {
 
 
 
+
 //submetendo a requisição
 btn_search.addEventListener('click',  async (event) => {
 
@@ -42,7 +47,31 @@ btn_search.addEventListener('click',  async (event) => {
     let { location, current } = result
 
     buildData(location, current)
-    // BGColorchange(current.temp_c)
+    localStorage.setItem("city", cityResquest)
 
     Input_text.value = ''
 });
+
+
+//pegando dados do localstorage
+window.addEventListener('load',  async () => {
+
+    const city = localStorage.getItem("city");
+
+    if(!city){
+        let result = await FetchAPI(initial_case)
+        let { location, current } = result
+        buildData(location, current)
+
+        localStorage.setItem("city", initial_case)
+
+    } else {
+        let result = await FetchAPI(city)
+        let { location, current } = result
+        buildData(location, current)
+
+        localStorage.clear()
+    }
+
+    Input_text.value = ''
+})
