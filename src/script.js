@@ -19,7 +19,6 @@ const feelslike = document.querySelector('#feelslike')
 let initial_case = 'london'; 
 
 
-
 //construindo dados e exibindoos
 const buildData = (location, current) => {
 
@@ -33,8 +32,6 @@ const buildData = (location, current) => {
     feelslike.innerHTML = `FeelsLike ${current.feelslike_c}° Celsius`
 
 }
-
-
 
 
 //submetendo a requisição
