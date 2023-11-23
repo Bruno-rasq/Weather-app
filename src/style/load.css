@@ -2,9 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.load h1 {
     text-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
