@@ -14,12 +14,12 @@
 
     <link rel="stylesheet" href="/src/style.css">
 
-    <script src="/src/Main.js" defer></script>
+    <script type='module' src="/src/Main.js" defer></script>
 
 </head>
 <body id="body">
 
-    <main>
+    <main id="main">
         <form class="searching-bar">
             <input type="text" required placeholder="Buscar cidade" class="input">
             <button type="submit" class="search-btn">
@@ -29,34 +29,34 @@
 
         <div class="weather-card">
             <div class="cityname">
-                <span>City</span>
-                <span>Region</span>
+                <span id="city">City</span>
+                <span id="region">Region</span>
                 <span>|</span>
-                <span>Country</span>
+                <span id="country">Country</span>
             </div>
 
             <div class="temp">
                 <div class="graus">
-                    <span>0</span>
+                    <span id="temp_c">0</span>
                     <span>°</span>
                 </div>
-                <span> Sunny</span>
-                <span>Feelslike: could</span>
+                <span id="description"> Sunny</span>
+                <span id="Feelslike">Feelslike: could</span>
             </div>
         </div>
 
         <div class="infos">
             <div>
                 <span class="material-symbols-outlined">humidity_low</span>
-                <span>0%</span>
+                <span id="humidity">0%</span>
             </div>
             <div>
                 <span class="material-symbols-outlined">air</span>
-                <span>0 Km/h</span>
+                <span id="wind">0 Km/h</span>
             </div>
             <div>
                 <span class="material-symbols-outlined">wb_sunny</span>
-                <span>1.2 UV</span>
+                <span id="uv">1.2 UV</span>
             </div>
         </div>
     </main>
