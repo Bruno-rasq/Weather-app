@@ -9,9 +9,14 @@
 }
 
 :root{
-    --bg-color: #161616;
-    --text-color: #dbdbdb;
-    --second-color: rgb(63, 63, 63);
+    --bg-color: #f5f5f5;
+    --color: #161616;
+
+    --text-color: #9c9c9c;
+    --tx-color: #dbdbdb;
+    
+    --second-color: #ffd587;
+    --sec-color: #3f3f3f;
 }
 
 body{

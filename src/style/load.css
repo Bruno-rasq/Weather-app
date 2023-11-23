@@ -4,10 +4,15 @@
     align-items: center;
 }
 
+.load h1 {
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
 .loading{
     margin: 20px auto 0;
     position: relative;
 }
+
 
 .loading span {
     animation: updown 0.9s ease-in infinite;

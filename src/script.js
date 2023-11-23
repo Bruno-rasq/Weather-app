@@ -1,85 +1,125 @@
 import { FetchAPI } from "./services/api.js";
 
-const Input_text = document.querySelector('#input_text');
-const form = document.querySelector('#form');
+const body = document.querySelector('#body');
+const main = document.querySelector('#main');
+
+const form = document.querySelector('.searching-bar');
+const input = document.querySelector('.input');
 
 
-//elementos visuais
-const CityName = document.querySelector('#cityName');
-const CountryName = document.querySelector('#countryName');
-const RegionName = document.querySelector('#regionName');
-const img = document.querySelector('#img');
-const temp = document.querySelector('#temp');
-const description_temp = document.querySelector('#description_temp');
-const feelslike = document.querySelector('#feelslike')
+const CityName = document.querySelector('#city');
+const RegionName = document.querySelector('#region');
+const CountryName = document.querySelector('#country');
+const temp = document.querySelector('#temp_c');
+const description_temp = document.querySelector('#description');
+const feelslike = document.querySelector('#Feelslike');
+const Humidity = document.querySelector('#humidity');
+const wind_kph = document.querySelector('#wind');
+const UV = document.querySelector('#uv');
 
 
-//variaveis auxiliares
-let initial_case = 'london'; 
+//variavel auxiliar
+const initial_case = 'porto alegre'
 
 
-//construindo dados e exibindoos
-const buildData = (location, current) => {
+// auxiliar na criação de elemento
+const CreateElement = (tag, classe) => {
+    const element = document.createElement(tag)
+    element.className = classe
+    return element
+}
 
-    CityName.innerHTML = `${location.name}`
-    CountryName.innerHTML = `${location.country}`
-    RegionName.innerHTML = `${location.region }`
+//criando elemento de loading
+const CreateLoading = () => {
+    
+    const load = CreateElement('div', 'load')
+    const title = CreateElement('h1')
+    const loading = CreateElement('div', 'loading')
+    const span1 = CreateElement('span')
+    const span2 = CreateElement('span')
+    const span3 = CreateElement('span')
 
-    img.src = `${current.condition.icon}`
-    temp.innerHTML = `${Number(current.temp_c).toFixed(0)}`
-    description_temp.innerHTML = `Condition: ${current.condition.text}`
-    feelslike.innerHTML = `FeelsLike ${current.feelslike_c}° Celsius`
+    title.innerHTML = 'Weather | App'
+    span1.innerHTML = '.'
+    span2.innerHTML = '.'
+    span3.innerHTML = '.'
 
+    loading.appendChild(span1)
+    loading.appendChild(span2)
+    loading.appendChild(span3)
+    load.appendChild(title)
+    load.appendChild(loading)
+
+    return load
 }
 
 //capturando cidade requisitada
-const getRequest = () => {
-    let city = Input_text.value
-    Input_text.value = ''
+const getRequestCity = () => {
+    let city = input.value
+    input.value = ''
 
     return city
 }
 
+//contruindo dados em tela
+const BuildData = (responseAPI) => {
+
+    let { location , current } = responseAPI
+
+    CityName.innerHTML = `${location.name}`
+    RegionName.innerHTML = `${location.region}`
+    CountryName.innerHTML = `${location.country}`
+    temp.innerHTML = `${Number(current.temp_c).toFixed(0)}`
+    description_temp.innerHTML = `Condition: ${current.condition.text}`
+    feelslike.innerHTML = `FeelsLike ${current.feelslike_c}° Celsius`
+    Humidity.innerHTML = `${current.humidity} %`
+    wind_kph.innerHTML = `${current.wind_kph} Km/h`
+    UV.innerHTML = `${current.uv} UV`
+}
+
+// elemento de load inicial
+const loading = CreateLoading()
 
 
 
-
-
-
-//submetendo a requisição
-form.addEventListener('submit',  async (event) => {
+form.addEventListener('submit', async (event) => {
 
     event.preventDefault()
 
-    let cityResquest = getRequest()
+    let cityResquest = getRequestCity()
     let result = await FetchAPI(cityResquest);
-    let { location, current } = result
+    BuildData(result)
 
-    buildData(location, current)
     localStorage.setItem("city", cityResquest)
+})
 
-});
+
+const startApp = () => {
+
+    setTimeout(() => {
+        body.removeChild(loading)
+        main.style.display = 'flex'
+    }, 4000)
+}
 
 
-//pegando dados do localstorage
 window.addEventListener('load',  async () => {
+
+    body.appendChild(loading)
+    startApp()
 
     const city = localStorage.getItem("city");
 
     if(!city){
-        let result = await FetchAPI(initial_case)
-        let { location, current } = result
-        buildData(location, current)
-
+        let result = await FetchAPI(initial_case);
+        BuildData(result)
         localStorage.setItem("city", initial_case)
 
     } else {
-        let result = await FetchAPI(city)
-        let { location, current } = result
-        buildData(location, current)
-
+        let result = await FetchAPI(city);
+        BuildData(result)
         localStorage.clear()
     }
 
-    Input_text.value = ''
+    input.value = ''
 })
