@@ -1,5 +1,6 @@
 @import '/src/style/load.css';
 @import '/src/style/main.css';
+@import '/src/style/mediaqueries.css';
 
 *{
     padding: 0px;

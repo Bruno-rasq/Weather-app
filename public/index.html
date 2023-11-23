@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,45 +7,59 @@
 
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 
-    <!-- <link rel="stylesheet" href="/src/style.css"> -->
-    <!-- <script type="module" src="/src/script.js" defer></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="/src/style.css">
+
+    <script src="/src/Main.js" defer></script>
 
 </head>
-
 <body id="body">
 
-    <div class="form_field">
-        <form id="form">
-            <input type="text" placeholder="Digite sua cidade" id="input_text" required>
-            <button type="submit">Buscar</button>
+    <main>
+        <form class="searching-bar">
+            <input type="text" required placeholder="Buscar cidade" class="input">
+            <button type="submit" class="search-btn">
+                <span class="material-symbols-outlined">search</span>
+            </button>
         </form>
-    </div>
 
-    <div class="weather_card">
+        <div class="weather-card">
+            <div class="cityname">
+                <span>City</span>
+                <span>Region</span>
+                <span>|</span>
+                <span>Country</span>
+            </div>
 
-        <div class="location_section">
-            <span id="cityName">City</span>
-            <div class="local">
-                <span id="regionName">Region</span>
-                <span>-</span>
-                <span id="countryName">Country</span>
+            <div class="temp">
+                <div class="graus">
+                    <span>0</span>
+                    <span>°</span>
+                </div>
+                <span> Sunny</span>
+                <span>Feelslike: could</span>
             </div>
         </div>
 
-        <div class="temp_section">
-            <img src="" alt="weather-image" class="img" id="img">
-            <div class="temp_info">
-                <span class="graus" id="temp">0</span>
-                <span class="celcius">°</span>
+        <div class="infos">
+            <div>
+                <span class="material-symbols-outlined">humidity_low</span>
+                <span>0%</span>
+            </div>
+            <div>
+                <span class="material-symbols-outlined">air</span>
+                <span>0 Km/h</span>
+            </div>
+            <div>
+                <span class="material-symbols-outlined">wb_sunny</span>
+                <span>1.2 UV</span>
             </div>
         </div>
-
-        <div class="Description_section">
-            <span id="description_temp">Condition:</span>
-            <span id="feelslike">feelslike: </span>
-        </div>
-    </div>
-
+    </main>
+    
 </body>
-
 </html>

@@ -1,0 +1,14 @@
+@media screen and (min-width: 320px) and (max-width: 767px){
+    
+    main {
+        max-width: 600px;
+    }
+
+    .searching-bar,
+    .infos,
+    .weather-card{
+        width: 400px;
+        font-size: 0.7rem;
+    }
+
+}

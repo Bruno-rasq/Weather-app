@@ -2,12 +2,14 @@ main {
 
     width: 100%;
     max-width: 800px;
-    height: 90vh;
+    height: 100%;
 
-    display: flex;
+    display: none; /* inicia com none depois ganha flex*/
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    gap: 5px;
+    margin: 20px 0;
 }
 
 .searching-bar{
@@ -41,6 +43,54 @@ main {
 .search-btn{
     width: 50px;
     cursor: pointer;
+}
+
+
+/* card */
+.weather-card{
+    flex: 1;
+    width: 500px;
+}
+
+.cityname{
+    width: 100%;
+    height: 40px;
+    padding-inline: 5px;
+
+    display: flex;
+    gap: 20px;
+    align-items: end;
+}
+
+.cityname span:nth-child(1){
+    font-size: 1.3rem;
+}
+
+.cityname span:nth-child(2),
+.cityname span:nth-child(3),
+.cityname span:nth-child(4){
+    opacity: 0.8;
+}
+
+.temp{
+
+    margin-top: 50px;
+    height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.graus{
+    font-size: 7rem;
+    letter-spacing: -60px;
+    color: var(--second-color);
+}
+
+.graus span:nth-child(1){
+    letter-spacing: -10px;
 }
 
 
