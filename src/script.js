@@ -1,5 +1,4 @@
 import { FetchAPI } from "./services/api.js";
-import { BGColorchange } from "./scripts/colorcontrol.js";
 
 const Input_text = document.querySelector('#input_text');
 const form = document.querySelector('#form');
@@ -40,6 +39,11 @@ const getRequest = () => {
 
     return city
 }
+
+
+
+
+
 
 
 //submetendo a requisição

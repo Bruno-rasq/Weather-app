@@ -1,5 +1,5 @@
-@import '/src/style-components/form.css';
-@import '/src/style-components/card.css';
+@import '/src/style/load.css';
+@import '/src/style/main.css';
 
 *{
     padding: 0px;
@@ -8,16 +8,15 @@
 }
 
 :root{
-    --btn-color: #f97316;
-    --bg-color: #e2e2e2;
-    --tx-color: #a0a2a8;
-    --card-color: #ffffff;
-    --input-color: rgb(56, 56, 56);
+    --bg-color: #161616;
+    --text-color: #dbdbdb;
+    --second-color: rgb(63, 63, 63);
 }
 
 body{
-    background-image: linear-gradient(to bottom, rgb(196, 196, 196), var(--bg-color));
-    font-family: Helvetica, sans-serif;
+    background-color: var(--bg-color);
+    font-family: 'Roboto Mono', monospace;
+    color: var(--text-color);
 
     width: 100vw;
     height: 100vh;
@@ -26,11 +25,4 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-}
-
-.form_field,
-.weather_card{
-
-    width: 500px;
 }
