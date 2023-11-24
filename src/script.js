@@ -80,20 +80,7 @@ const BuildData = (responseAPI) => {
 // elemento de load inicial
 const loading = CreateLoading()
 
-
-
-form.addEventListener('submit', async (event) => {
-
-    event.preventDefault()
-
-    let cityResquest = getRequestCity()
-    let result = await FetchAPI(cityResquest);
-    BuildData(result)
-
-    localStorage.setItem("city", cityResquest)
-})
-
-
+// iniciando app
 const startApp = () => {
 
     setTimeout(() => {
@@ -103,7 +90,21 @@ const startApp = () => {
 }
 
 
-window.addEventListener('load',  async () => {
+
+form.addEventListener('submit', async (event) => {
+
+    event.preventDefault()
+
+    let cityResquest = getRequestCity()
+    let result = await FetchAPI(cityResquest);
+
+    BuildData(result)
+
+    localStorage.setItem("city", cityResquest)
+})
+
+
+window.addEventListener('load', async () => {
 
     body.appendChild(loading)
     startApp()
@@ -122,4 +123,5 @@ window.addEventListener('load',  async () => {
     }
 
     input.value = ''
+    
 })

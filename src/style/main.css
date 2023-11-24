@@ -1,7 +1,7 @@
 main {
 
     width: 100%;
-    max-width: 800px;
+    max-width: 500px;
     height: 100%;
 
     display: none; 
@@ -76,7 +76,7 @@ main {
 .graus{
     font-size: 7rem;
     letter-spacing: -60px;
-    color: var(--second-color);
+    color: rgb(201, 200, 188);
 }
 
 .graus span:nth-child(1){
